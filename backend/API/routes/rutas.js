@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Rutas = void 0;
+const express_1 = require("express");
+const controladores_1 = require("../controllers/controladores");
+const Rutas = (0, express_1.Router)();
+exports.Rutas = Rutas;
+Rutas.post('/crear', controladores_1.CrearPersistencia);
+Rutas.get('/obtenercl/:ci', controladores_1.ObtenerCliente);
+Rutas.put('/actualizar/:id', controladores_1.actualizar);
+Rutas.get('/obteneradmin', controladores_1.ObtenerAdmin);
