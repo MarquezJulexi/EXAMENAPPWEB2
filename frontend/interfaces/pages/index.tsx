@@ -18,7 +18,12 @@ const Home: NextPage = () => {
         <h1 className="">Tipo Usuario:</h1>
         <section className={styles.title}>
             Rol: <Link href='/registro'>
-            <a>CLIENTE</a>
+            <a>Crear Pertinencia Cl</a>
+            </Link> 
+        </section>
+        <section className={styles.title}>
+             <Link href='/comprobar'>
+            <a>Modificar Pertinencia CL</a>
             </Link> 
         </section>
         <section className={styles.title}>

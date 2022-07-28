@@ -23,12 +23,42 @@ export default function comprobar (){
          ObtenerClient( ci )
               .then( ( res ) => {
                   console.log( res )
-                return (
-                    <div>
-                        
-                    </div>
-                )
-              } )
+                    return (
+                            <div>
+                                    <div className="container">
+                                    <div className="row">
+                                        <br/>
+                                        
+                                            <table className="table table-striped">
+                                                <thead>
+                                                    <th>Numero de Prestamo</th>
+                                                    <th>Fecha y Hora</th>
+                                                    <th>Ci Estudiante</th>
+                                                    <th>Tipo Cancha</th>
+                                                    <th colSpan={2} >Opciones</th>
+                                                </thead>
+                                                {res.datos.length===0?(
+                                                    <div >Cargando...</div>
+                                                ):(
+                                                    res.datos?.map((prestamo:any) => {
+                                                        return (
+                                                            <tr key={prestamo._id}>
+                                                                <td>{prestamo.numerosprestamos}</td>
+                                                                <td>{prestamo.fechayhora}</td>
+                                                                <td>{prestamo.ciestudiante}</td>
+                                                                <td>{prestamo.tipocancha}</td>
+                                                                <td><Link className='btn btn-primary' href={`http://localhost:4500/nombreentidad/actualizar/${prestamo._id}}`}></Link></td>
+                                                            </tr>
+                                                            )
+                                                    })
+                                                )}
+                                                
+                                            </table>
+                                    </div>
+                            </div>
+                            </div>
+                    )
+                } )
               .catch( ( error: AxiosError) => {
                   console.log( error)
               } )

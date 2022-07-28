@@ -13,3 +13,8 @@ export async function ObtenerClient (ci:String|undefined){
     .then(({data})=>{return data});
 
 }
+export async function Informado (id:String|undefined) {
+    return await Maxios.put(`actualizar/${id}`,)
+    .then(({data})=>{return data});
+
+}

@@ -24,8 +24,8 @@ const ObtenerCliente = async(req:Request, res:Response)=>{
 const actualizar = async(req:Request, res:Response) => {
     try {
         const {id} = req.params;
-        const {...dato}=req.body;
-        const PersistenciaM= await Perssitencia.findByIdAndUpdate(id,dato,{new:true})
+        
+        const PersistenciaM= await Perssitencia.findByIdAndUpdate(id,{estado:4},{new:true})
         res.json(PersistenciaM);
     } catch (error) {
         console.log(error) ;

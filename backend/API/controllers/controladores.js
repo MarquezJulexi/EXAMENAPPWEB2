@@ -47,8 +47,7 @@ exports.ObtenerCliente = ObtenerCliente;
 const actualizar = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { id } = req.params;
-        const dato = __rest(req.body, []);
-        const PersistenciaM = yield Persistencia_1.Perssitencia.findByIdAndUpdate(id, dato, { new: true });
+        const PersistenciaM = yield Persistencia_1.Perssitencia.findByIdAndUpdate(id, { estado: 4 }, { new: true });
         res.json(PersistenciaM);
     }
     catch (error) {
