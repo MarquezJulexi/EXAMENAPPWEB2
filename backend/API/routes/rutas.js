@@ -9,4 +9,4 @@ Rutas.post('/crear', controladores_1.CrearPersistencia);
 Rutas.get('/obtenercl/:ci', controladores_1.ObtenerCliente);
 Rutas.put('/actualizar/:id', controladores_1.actualizar);
 Rutas.get('/obteneradmin', controladores_1.ObtenerAdmin);
-Rutas.put('/eliminar:id', controladores_1.Eliminar);
+Rutas.put('/eliminar/:id', controladores_1.Eliminar);

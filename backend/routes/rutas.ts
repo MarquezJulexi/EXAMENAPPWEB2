@@ -12,6 +12,6 @@ Rutas.put('/actualizar/:id', actualizar);
 
 Rutas.get('/obteneradmin',ObtenerAdmin);
 
-Rutas.put('/eliminar:id', Eliminar);
+Rutas.put('/eliminar/:id', Eliminar);
 
 export{Rutas};
