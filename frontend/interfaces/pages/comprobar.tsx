@@ -1,37 +1,37 @@
 import Head from 'next/head'
 import style from '../styles/Home.module.css'
-import {ChangeEvent, FormEvent, useState} from 'react'
+import { ChangeEvent, FormEvent, useState } from 'react'
 import Link from 'next/link'
 import { obtener } from '../interfaces/persistenciaI'
 import { AxiosError } from 'axios'
 import { ObtenerClient } from '../services/servicesRES'
 
-export default function comprobar (){
-    const [persistencia, setpersistencia]= useState<obtener>({
-        ci:''
-      });
-    const handleChange = ( e: ChangeEvent<HTMLInputElement> ) => {
-        setpersistencia( {
+export default function comprobar() {
+    const [persistencia, setpersistencia] = useState<obtener>({
+        ci: ''
+    });
+    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+        setpersistencia({
             ...persistencia,
             [e.target.name]: e.target.value,
-        } );
+        });
     };
-    const handleSubmit = ( e: FormEvent<HTMLFormElement> ) => {
+    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        const {ci} = persistencia
-        console.log( ci );
-         ObtenerClient( ci )
-              .then( ( res ) => {
-                  console.log( res )
+        const { ci } = persistencia
+        console.log(ci);
+        ObtenerClient(ci)
+            .then((res) => {
+                console.log(res)
                 return (
                     <div>
-                        
+
                     </div>
                 )
-              } )
-              .catch( ( error: AxiosError) => {
-                  console.log( error)
-              } )
+            })
+            .catch((error: AxiosError) => {
+                console.log(error)
+            })
     }
 
     return (
@@ -48,19 +48,19 @@ export default function comprobar (){
                 </h1>
                 <div className="container">
                     <form onSubmit={handleSubmit} method="post">
-                    
-                    <div className="form-group">
-                        <label htmlFor="nombre">Cedúla</label>
-                        <input onChange={handleChange} className="form-control" type="text"  id="ci" name="ci"  />
-                    </div>
-                    
-                    <button type="submit" className="btn btn-primary">Consultar</button>
-                
+
+                        <div className="form-group">
+                            <label htmlFor="nombre">Cedúla</label>
+                            <input onChange={handleChange} className="form-control" type="text" id="ci" name="ci" />
+                        </div>
+
+                        <button type="submit" className="btn btn-primary">Consultar</button>
+
                     </form>
                 </div>
                 <Link href='/' >
-                    <a   className="btn btn-primary">Atrás</a>
-                </Link> 
+                    <a className="btn btn-primary">Atrás</a>
+                </Link>
             </main>
         </div>
     )
