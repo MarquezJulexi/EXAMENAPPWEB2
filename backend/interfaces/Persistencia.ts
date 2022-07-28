@@ -5,5 +5,6 @@ export interface IPersistencia{
     numerohoras:Number,
     jugadoresparticipantes:String,
     tipocancha:String,
-    estado:Number
+    estado:Number,
+    eliminado:Boolean
 }

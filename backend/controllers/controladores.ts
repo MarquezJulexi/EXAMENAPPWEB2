@@ -47,12 +47,22 @@ const ObtenerAdmin = async(req:Request, res:Response) => {
         res.status(400).json({message: error});
     }
 }
-
+const Eliminar = async(req:Request, res:Response)=>{
+    try {
+        const {id} = req.params;
+        const PersistenciaMOD= await Perssitencia.findByIdAndUpdate(id,{eliminado:true},{new:true});
+        res.json(PersistenciaMOD);
+    } catch (error) {
+        console.log(error) ;
+        res.status(400).json({message: error});
+    }
+}
 export{
     CrearPersistencia,
     ObtenerCliente,
     actualizar,
-    ObtenerAdmin
+    ObtenerAdmin,
+    Eliminar
    
 
 }

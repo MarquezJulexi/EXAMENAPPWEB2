@@ -20,7 +20,7 @@ var __rest = (this && this.__rest) || function (s, e) {
     return t;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ObtenerAdmin = exports.actualizar = exports.ObtenerCliente = exports.CrearPersistencia = void 0;
+exports.Eliminar = exports.ObtenerAdmin = exports.actualizar = exports.ObtenerCliente = exports.CrearPersistencia = void 0;
 const Persistencia_1 = require("../models/Persistencia");
 const CrearPersistencia = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const dato = __rest(req.body, []);
@@ -72,3 +72,15 @@ const ObtenerAdmin = (req, res) => __awaiter(void 0, void 0, void 0, function* (
     }
 });
 exports.ObtenerAdmin = ObtenerAdmin;
+const Eliminar = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const { id } = req.params;
+        const PersistenciaMOD = yield Persistencia_1.Perssitencia.findByIdAndUpdate(id, { eliminado: true }, { new: true });
+        res.json(PersistenciaMOD);
+    }
+    catch (error) {
+        console.log(error);
+        res.status(400).json({ message: error });
+    }
+});
+exports.Eliminar = Eliminar;

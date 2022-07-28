@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import { CrearPersistencia,ObtenerCliente,
-    actualizar,ObtenerAdmin,
+    actualizar,ObtenerAdmin, Eliminar,
 } from '../controllers/controladores';
 
 
@@ -12,6 +12,6 @@ Rutas.put('/actualizar/:id', actualizar);
 
 Rutas.get('/obteneradmin',ObtenerAdmin);
 
-
+Rutas.put('/eliminar:id', Eliminar);
 
 export{Rutas};

@@ -25,6 +25,11 @@ const PersitenciaSchema = new mongoose_1.Schema({
         type: Number,
         default: 1,
         required: true
+    },
+    eliminado: {
+        type: Boolean,
+        default: false,
+        required: true,
     }
 });
 const Perssitencia = (0, mongoose_1.model)('Persistencia', PersitenciaSchema);

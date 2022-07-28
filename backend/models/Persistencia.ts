@@ -25,6 +25,11 @@ const PersitenciaSchema: mongoose.Schema = new Schema<IPersistencia>({
         type: Number,
         default:1,
         required:true
+    },
+    eliminado:{
+        type: Boolean,
+        default: false,
+        required: true,
     }
    
 
