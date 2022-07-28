@@ -18,7 +18,6 @@ export default function comprobar() {
     };
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-<<<<<<< HEAD
         const {ci} = persistencia
         console.log( ci );
          ObtenerClient( ci )
@@ -63,22 +62,6 @@ export default function comprobar() {
               .catch( ( error: AxiosError) => {
                   console.log( error)
               } )
-=======
-        const { ci } = persistencia
-        console.log(ci);
-        ObtenerClient(ci)
-            .then((res) => {
-                console.log(res)
-                return (
-                    <div>
-
-                    </div>
-                )
-            })
-            .catch((error: AxiosError) => {
-                console.log(error)
-            })
->>>>>>> 977963f80455997c05f10dc0c18d59c9e0aea6b1
     }
 
     return (

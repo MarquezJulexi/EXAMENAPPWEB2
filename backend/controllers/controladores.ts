@@ -6,7 +6,6 @@ const CrearPersistencia = async (req: Request, res: Response) => {
     const nuevoPrestamo = await Prestamo.save();
     res.status(201).json(nuevoPrestamo);
 }
-<<<<<<< HEAD
 const ObtenerCliente = async(req:Request, res:Response)=>{
    try {
     const {ci} = req.params;
@@ -34,9 +33,6 @@ const actualizar = async(req:Request, res:Response) => {
     }
 }
 const ObtenerAdmin = async(req:Request, res:Response) => {
-=======
-const ObtenerCliente = async (req: Request, res: Response) => {
->>>>>>> 977963f80455997c05f10dc0c18d59c9e0aea6b1
     try {
         const { ci } = req.params;
         const [Persistencias] = await Promise.all([
@@ -49,32 +45,6 @@ const ObtenerCliente = async (req: Request, res: Response) => {
         });
     } catch (error) {
         console.log(error);
-    }
-}
-const actualizar = async (req: Request, res: Response) => {
-    try {
-        const { id } = req.params;
-        const { ...dato } = req.body;
-        const PersistenciaM = await Perssitencia.findByIdAndUpdate(id, dato, { new: true })
-        res.json(PersistenciaM);
-    } catch (error) {
-        console.log(error);
-        res.status(400).json({ message: error });
-    }
-}
-const ObtenerAdmin = async (req: Request, res: Response) => {
-    try {
-        const [Persistencias] = await Promise.all([
-
-            Perssitencia.find({ estado: 1 }),
-        ])
-        res.status(200).json({
-            datos:
-                Persistencias,
-        });
-    } catch (error) {
-        console.log(error);
-        res.status(400).json({ message: error });
     }
 }
 const Eliminar = async (req: Request, res: Response) => {

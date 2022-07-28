@@ -58,8 +58,9 @@ const actualizar = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
 exports.actualizar = actualizar;
 const ObtenerAdmin = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
+        const { ci } = req.params;
         const [Persistencias] = yield Promise.all([
-            Persistencia_1.Perssitencia.find({ estado: 1 }),
+            Persistencia_1.Perssitencia.find({ ciestudiante: ci, estado: 2 }),
         ]);
         res.status(200).json({
             datos: Persistencias,
@@ -67,7 +68,6 @@ const ObtenerAdmin = (req, res) => __awaiter(void 0, void 0, void 0, function* (
     }
     catch (error) {
         console.log(error);
-        res.status(400).json({ message: error });
     }
 });
 exports.ObtenerAdmin = ObtenerAdmin;
