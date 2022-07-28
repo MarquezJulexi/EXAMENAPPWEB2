@@ -11,3 +11,7 @@ export interface PersistenciaI  {
 
 
 }
+export interface obtener{
+
+    ci:String,
+}
