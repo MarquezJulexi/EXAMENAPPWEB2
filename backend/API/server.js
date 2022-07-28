@@ -31,11 +31,15 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Server = void 0;
 const express_1 = __importStar(require("express"));
 const config_1 = require("./database/config");
 const rutas_1 = require("./routes/rutas");
+const cors_1 = __importDefault(require("cors"));
 class Server {
     constructor() {
         this.App = (0, express_1.Router)();
@@ -58,6 +62,7 @@ class Server {
     }
     ;
     middlewares() {
+        this.App.use((0, cors_1.default)());
         this.App.use(express_1.default.json());
     }
     routes() {

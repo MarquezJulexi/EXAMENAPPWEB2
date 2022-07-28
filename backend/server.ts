@@ -1,6 +1,7 @@
 import express,{Express,Router} from 'express';
 import {dbConnection} from './database/config'
 import { Rutas } from './routes/rutas';
+import cors from 'cors'
 class Server {
     App: Router;
     Router:Router;
@@ -26,6 +27,7 @@ class Server {
         await dbConnection();
     };
     private middlewares (){
+        this.App.use(cors());
         this.App.use(express.json());
     }
     private routes(){
